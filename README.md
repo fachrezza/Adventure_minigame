@@ -43,7 +43,7 @@ A 2D adventure game built with **Python**, **Pygame-CE**, and **PyTMX**. This pr
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Adventure_minigame.git
+git clone https://github.com/fachrezza/Adventure_minigame.git
 ```
 
 ### Navigate to the project folder
