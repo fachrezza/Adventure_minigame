@@ -116,32 +116,22 @@ class Player:
 
         if moving:
             self.state = "walk"
-
-            self.animation_timer += 1
-
-            if self.animation_timer >= self.animation_speed:
-
-                self.animation_timer = 0
-
-                self.current_frame += 1
-
-                if self.current_frame >= FRAME_COUNT:
-                    self.current_frame = 0
-
         else:
-
             self.state = "idle"
 
-            self.animation_timer += 1
+        self.animation_timer += 1
 
-            if self.animation_timer >= self.animation_speed:
+        animation_name = f"{self.state}_{self.direction}"
+        animation = self.animations[animation_name]
 
-                self.animation_timer = 0
+        if self.animation_timer >= self.animation_speed:
 
-                self.current_frame += 1
+            self.animation_timer = 0
 
-                if self.current_frame >= FRAME_COUNT:
-                    self.current_frame = 0
+            self.current_frame += 1
+
+            if self.current_frame >= len(animation):
+                self.current_frame = 0
     
     def draw(self, screen, camera):
 
