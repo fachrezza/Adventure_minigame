@@ -31,10 +31,13 @@ class Player:
         if keys[pygame.K_s]:
             self.y += self.speed
 
-    def draw(self, screen):
+    def draw(self, screen, camera):
+
+        screen_x = self.x - camera.x
+        screen_y = self.y - camera.y
 
         pygame.draw.rect(
             screen,
             self.color,
-            (self.x, self.y, self.width, self.height)
+            (screen_x, screen_y, self.width, self.height)
         )

@@ -3,11 +3,18 @@ import sys
 
 from settings import *
 from player import Player
+from camera import Camera
+from world import World
+
+
 
 pygame.init()
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("My Adventure Minigame")
+
+camera = Camera()
+world = World()
 
 clock = pygame.time.Clock()
 
@@ -23,9 +30,13 @@ while running:
 
     player.update()
 
+    camera.update(player)
+
     screen.fill(BACKGROUND_COLOR)
 
-    player.draw(screen)
+    world.draw(screen, camera)
+
+    player.draw(screen, camera)
 
     pygame.display.flip()
 
